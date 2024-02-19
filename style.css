@@ -57,3 +57,109 @@ thead{
     font-size: 10px;
 
 }
+
+
+.form-input{
+    display: flex;
+    /* border: 1px solid black; */
+    width: auto;
+    flex-wrap: wrap;
+    margin:0 10px 0 10px;
+    padding:10px;
+    justify-content: center;
+    
+}
+
+.form{
+}
+
+
+#form-name{
+
+    margin-left: 10px;
+    width: 60%;
+
+}
+#form-no,
+#form-facup,
+#form-age,
+#form-premierleague,
+#form-position,#form-assist,#form-goal,#form-cleansheet{
+    width: 50px;
+}
+
+
+.player-name{
+    font-weight: bold;
+    text-align: center;
+    /* border: 1px solid rgb(12, 161, 253); */
+    width: 500px;
+}
+
+.basic-info{
+    padding:10px;
+    margin:0 10px 0 10px;
+    /* border: 1px solid red; */
+}
+
+.achievement{
+    padding:10px;
+    margin:0 10px 0 10px;
+    /* border: 1px solid rgb(4, 200, 73); */
+}
+
+.title{
+    padding:10px;
+    margin:0 10px 0 10px;
+    /* border: 1px solid rgb(6, 80, 218); */
+}
+
+input{
+    float: right;
+}
+
+h3{
+    margin-bottom:5px ;
+    margin-top:0px;
+
+}
+
+.form-name{
+    width: 100px;
+    float:none;
+}
+
+.form-container-input{
+    /* display: none; */
+    border: 1px solid rgb(193, 188, 188);
+    border-radius:10px;
+    width: 600px;
+    margin: 0 auto 20px auto;
+    padding:10px 0 0 0;
+}
+
+.submit-form{
+    width: 100%;
+    padding:10px;
+    border-radius: 5px;
+    border:0px;
+    color:white;
+    background-color: rgb(210, 4, 4);
+    margin-bottom: 10px;
+
+}
+
+.submit-form:hover{
+    background-color: rgb(138, 35, 35);
+    cursor: pointer;
+}
+
+.submit-form:active{
+    background-color: rgb(71, 13, 13);
+    cursor: pointer;
+}
+
+.hidedisplay{
+    display:none;
+    background-color: red;
+}

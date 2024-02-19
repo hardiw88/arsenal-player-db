@@ -10,15 +10,76 @@
     
     <h2 class="title-arsenaldb"><img src="img/arsenal-logo.png" class="arsenal-logo"  width="188px"><br/>Arsenal Player Database</h2>
 
+
+
+
+
+   <!-- input from user section -->
+   <form class="form-container-input" >
+
+    <!-- player name -->
+    <div class="player-name">
+        <div class="form" >Player Name: <input type="text" class="form-name" id="form-name" required></div>
+    </div>
+
+
+    <div id="form-input" class="form-input">
+        <!-- basic info -->
+        <div class="basic-info">
+        <h3><u>Basic Info</u></h3> 
+            <div class="form" >No: <input type="text" class="form-no" id="form-no" required></div>
+        
+            <div class="form" >Age: <input type="text" class="form-age" id="form-age" required></div>
+            <div class="form" >Position: <input type="text" class="form-position" id="form-position" required></div>
+        </div>
+
+        
+        <!-- achievement input -->
+        <div class="achievement">
+        <h3><u>Achievement</u></h3> 
+
+            <div class="form" >Assist: <input type="text" class="form-assist" id="form-assist"></div>
+            <div class="form" >Goal: <input type="text" class="form-goal" id="form-goal"></div>
+            <div class="form" >Cleansheet: <input type="text" class="form-cleansheet" id="form-cleansheet"></div>
+        </div>
+
+
+        <!-- title input -->
+        <div class="title">
+        <h3><u>Title Won</u></h3> 
+
+            <div class="form" >Premier League Cup: <input type="text" class="form-premierleague" id="form-premierleague"></div>
+            <div class="form" >FA Cup: <input type="text" class="form-facup" id="form-facup"></div>
+        </div>
+    
+    <button type="submit" id="submit-form" class="submit-form" onclick="submitButton()">ADD NEW PLAYER</button>
+
+    </div>
+
+</form>
+
+
+
+
+
+
     <div class="content"></div>
     <table>
+        
+ 
+
+
         <thead>
+            
             <tr>
+                
                 <th rowspan="3">No.</th>
                 <th rowspan="3">Name</th>
                 <th rowspan="3">Age</th>
                 <th rowspan="3">Pos</th>
-                <th colspan="8">Achievement</th>
+                <th colspan="5">Achievement</th>
+                <th rowspan="2" colspan="3">Action</th>
+
 
                               
             </tr>
@@ -32,14 +93,21 @@
                 <th class="th-performance" rowspan="2">CleanS</th>
                 <th class="th-performance" colspan="2">Title</th>
 
-                <tr>
+
+                <tr id="row3" class="row3">
                         <!-- title -->
                     <th class="th-title">PL </th>
                     <th class="th-title">FA</th>
+
+                    <!-- action -->
+                    <th class="th-edit" id="th-edit">Edit </th>
+                    <th class="th-delete"  id="th-delete">Del </th>
                 </tr>
                     
-             
+
+               
             </tr>
+            
 
 
        </thead>

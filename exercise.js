@@ -83,6 +83,37 @@ const arrayArsenalPlayers = [
     }
 ]
 
+function editButton(index){
+    let formContainerInput = document.querySelector('.form-container-input')
+    // formContainerInput.classList.toggle("hidedisplay")
+
+    let changeLabel = document.getElementById('submit-form')
+    changeLabel.innerText="UPDATE DATABASE"
+
+    console.log(arrayArsenalPlayers[index]);
+
+    document.getElementById('form-name').value=arrayArsenalPlayers[index].name
+
+    document.getElementById('form-no').value=arrayArsenalPlayers[index].no
+    
+    document.getElementById('form-age').value=arrayArsenalPlayers[index].age
+    
+    document.getElementById('form-position').value=arrayArsenalPlayers[index].position
+    
+    document.getElementById('form-assist').value=arrayArsenalPlayers[index].achievement.assist
+    
+    document.getElementById('form-goal').value=arrayArsenalPlayers[index].achievement.goal
+    
+    document.getElementById('form-cleansheet').value=arrayArsenalPlayers[index].achievement.cleansheet
+    
+    document.getElementById('form-premierleague').value=arrayArsenalPlayers[index].achievement.title.premierLeague
+    
+    document.getElementById('form-facup').value=arrayArsenalPlayers[index].achievement.title.faCup
+
+}
+
+
+
 
 
 arrayArsenalPlayers.forEach((item,index)=>{
@@ -109,63 +140,26 @@ arrayArsenalPlayers.forEach((item,index)=>{
     }
 
         //insert Cell
-        tBodyRow.insertCell().innerHTML=item.no
-        tBodyRow.insertCell().innerHTML=item.name
-        tBodyRow.insertCell().innerHTML=item.age
-        tBodyRow.insertCell().innerHTML=item.position
-        tBodyRow.insertCell().innerHTML=item.achievement.assist
-        tBodyRow.insertCell().innerHTML=item.achievement.goal
-        tBodyRow.insertCell().innerHTML=item.achievement.cleansheet
-        tBodyRow.insertCell().innerHTML=item.achievement.title.premierLeague
-        tBodyRow.insertCell().innerHTML=item.achievement.title.faCup
+        tBodyRow.insertCell(0).innerHTML=item.no
+        tBodyRow.insertCell(1).innerHTML=item.name
+        tBodyRow.insertCell(2).innerHTML=item.age
+        tBodyRow.insertCell(3).innerHTML=item.position
+        tBodyRow.insertCell(4).innerHTML=item.achievement.assist
+        tBodyRow.insertCell(5).innerHTML=item.achievement.goal
+        tBodyRow.insertCell(6).innerHTML=item.achievement.cleansheet
+        tBodyRow.insertCell(7).innerHTML=item.achievement.title.premierLeague
+        tBodyRow.insertCell(8).innerHTML=item.achievement.title.faCup
+        tBodyRow.insertCell(9).innerHTML=`<button onclick="editButton(${index})">Edit</button>`
+        tBodyRow.insertCell(10).innerHTML=`x`
 
-        
-        
-        // `
-        //     <ul>
-        //         <li>${Object.keys(item.achievement.title)[0]} : ${item.achievement.title.premierLeague}</li>
-        //         <li>${Object.keys(item.achievement.title)[1]}${item.achievement.title.faCup}</li>
-        //     <ul>
-        // `
-
-
-
-
-//         const ulTitle = document.createElement('ul')
-//         const ulTitle2= tBodyRow.insertCell().appendChild(ulTitle)
-// 
-//         const liTitle = document.createElement('li')
-//         ulTitle2.appendChild(liTitle)
-// 
-// 
-//         ulTitle.innerHTML=`
-//         <ul>
-//             <li>${Object.entries(item.achievement.title)}</li>
-//         </ul>
-//         `
-// 
-//         
-//         tBodyRow.insertCell().innerHTML=`
-//         <ul>
-//             <li>${Object.entries(item.achievement.title)}</li>
-//         </ul>
-//         `
-
-
-
-    
-
-
-
-
-
-    
-
+  
 
 })
 
 
-
+function submitButton(){
+    alert('hi')
+}
 
 
 
