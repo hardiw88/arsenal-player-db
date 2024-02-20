@@ -15,7 +15,7 @@
 
 
    <!-- input from user section -->
-   <form class="form-container-input" >
+   <form class="form-container-input" onsubmit="submitButton()">
 
     <!-- player name -->
     <div class="player-name">
@@ -54,11 +54,18 @@
     
     <button type="submit" id="submit-form" class="submit-form" onclick="submitButton()">ADD NEW PLAYER</button>
 
+   
+    <button id="edit-form" class="edit-form" onclick='updatesButton() ;return false'>UPDATE</button>
+    
     </div>
+   
 
-</form>
+
+</form> 
 
 
+
+<button onclick="tryMe()">try me</button>
 
 
 
