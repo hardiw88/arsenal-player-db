@@ -86,7 +86,7 @@ const arrayArsenalPlayers = [
 //=========================
 // FUNCTION EDIT BUTTON
 //=========================
-function editButton(index){
+function editButton(index,no){
     let formContainerInput = document.querySelector('.form-container-input')
     // formContainerInput.classList.toggle("hidedisplay")
 
@@ -101,7 +101,7 @@ function editButton(index){
     
     
 
-    console.log(arrayArsenalPlayers[index]);
+    // console.log(arrayArsenalPlayers[index]);
 
     document.getElementById('form-name').value=arrayArsenalPlayers[index].name
 
@@ -176,61 +176,106 @@ function submitButton(){
 
 
 
-function updatesButton(index){
+function updatesButton(){
 
 
  // Get the updated values from the form
- const updatedName = document.getElementById('form-name').value;
- const updatedNo = document.getElementById('form-no').value;
- const updatedAge = document.getElementById('form-age').value;
- const updatedPosition = document.getElementById('form-position').value;
- const updatedAssist = document.getElementById('form-assist').value;
- const updatedGoal = document.getElementById('form-goal').value;
- const updatedCleansheet = document.getElementById('form-cleansheet').value;
- const updatedPremierLeague = document.getElementById('form-premierleague').value;
- const updatedFaCup = document.getElementById('form-facup').value;
+ const updatedName = document.getElementById('form-name');
+ const updatedNo = document.getElementById('form-no');
+ const updatedAge = document.getElementById('form-age');
+ const updatedPosition = document.getElementById('form-position');
+ const updatedAssist = document.getElementById('form-assist');
+ const updatedGoal = document.getElementById('form-goal');
+ const updatedCleansheet = document.getElementById('form-cleansheet');
+ const updatedPremierLeague = document.getElementById('form-premierleague');
+ const updatedFaCup = document.getElementById('form-facup');
+
+
+
+
+
+
 
  // Update the arrayArsenalPlayers with the new values
- arrayArsenalPlayers[index] = {
-     no: updatedNo,
-     name: updatedName,
-     age: updatedAge,
-     position: updatedPosition,
-     achievement: {
-         assist: updatedAssist,
-         goal: updatedGoal,
-         cleansheet: updatedCleansheet,
-         title: {
-             premierLeague: updatedPremierLeague,
-             faCup: updatedFaCup,
-         },
-     },
- };
+//  arrayArsenalPlayers[index] = {
+//      no: updatedNo,
+//      name: updatedName,
+//      age: updatedAge,
+//      position: updatedPosition,
+//      achievement: {
+//          assist: updatedAssist,
+//          goal: updatedGoal,
+//          cleansheet: updatedCleansheet,
+//          title: {
+//              premierLeague: updatedPremierLeague,
+//              faCup: updatedFaCup,
+//          },
+//      },
+//  };
 
  // Log the updated array
- console.log(arrayArsenalPlayers);
+//  console.log(arrayArsenalPlayers);
 
 
 
 
-//     event = event || window.event
-//     event.preventDefault()
-// 
+    // event = event || window.event
+    // event.preventDefault()
+
 //     let newNameValue = document.getElementById('form-name').value 
 //     let oldNameValue = arrayArsenalPlayers[index]
-        // document.getElementById('form-no').value
-        // document.getElementById('form-age').value
-        // document.getElementById('form-position').value
-        // document.getElementById('form-assist').value
-        // document.getElementById('form-goal').value
-        // document.getElementById('form-cleansheet').value
-        // document.getElementById('form-premierleague').value
-        // document.getElementById('form-facup').value
-
-        // console.log(`new Value  ${newNameValue}`);
-        // console.log(`old value  ${oldNameValue}`)
+//         document.getElementById('form-no').value
+//         document.getElementById('form-age').value
+//         document.getElementById('form-position').value
+//         document.getElementById('form-assist').value
+//         document.getElementById('form-goal').value
+//         document.getElementById('form-cleansheet').value
+//         document.getElementById('form-premierleague').value
+//         document.getElementById('form-facup').value
+// 
+//         console.log(`new Value  ${newNameValue}`);
+//         console.log(`old value  ${oldNameValue}`)
  
     // alert('Update Successfully!');
+
+
+    let newPlayerUpdated = arrayArsenalPlayers.find(player => 
+        player.no=== document.getElementById('form-no').value)
+// 
+//     )
+
+
+console.log("oldPlayerStates" ,newPlayerUpdated);
+newPlayerUpdated.name = document.getElementById('form-name').value
+
+    console.log("newPlayerUpdated" ,newPlayerUpdated);
+
+
+         //clear input
+ document.getElementById('form-name').value=""
+ updatedNo.value=""
+ updatedAge.value=""
+ updatedPosition.value=""
+ updatedAssist.value=""
+ updatedGoal.value=""
+ updatedCleansheet.value=""
+ updatedPremierLeague.value=""
+ updatedFaCup.value=""
+
+
+//     
+// 
+// 
+//     console.log("arrayArsenalPlayers[no]", arrayArsenalPlayers[newPlayerUpdated.no-1])
+// 
+//     console.log("newPlayerUpdated.no", newPlayerUpdated.no)
+// 
+//     
+
+
+    //update the table
+
+
 }
 
 
@@ -238,8 +283,7 @@ function updatesButton(index){
 
 
 function tryMe(){
-    arrayArsenalPlayers.push(document.getElementById('form-name').value)
-  console.log(arrayArsenalPlayers)
+    console.log(arrayArsenalPlayers);
 }
 
 
