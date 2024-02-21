@@ -8,7 +8,7 @@
 </head>
 <body>
     
-    <h2 class="title-arsenaldb"><img src="img/arsenal-logo.png" class="arsenal-logo"  width="188px"><br/>Arsenal Player Database</h2>
+    <h2 class="title-arsenaldb"><img src="img/arsenal-logo.png" class="arsenal-logo"  width="88px"><br/>Arsenal Player Database</h2>
 
 
 
@@ -27,6 +27,9 @@
         <!-- basic info -->
         <div class="basic-info">
         <h3><u>Basic Info</u></h3> 
+
+            <div class="form"> <input type="text" class="form-id" id="form-id" hidden></div>
+
             <div class="form" >No: <input type="text" class="form-no" id="form-no" required></div>
         
             <div class="form" >Age: <input type="text" class="form-age" id="form-age" required></div>
@@ -55,7 +58,7 @@
     <button type="submit" id="submit-form" class="submit-form" onclick="submitButton()">ADD NEW PLAYER</button>
 
    
-    <button id="edit-form" class="edit-form" onclick='updatesButton() ;return false'>UPDATE</button>
+    <button id="edit-form" class="edit-form" onclick='updatesButton(event) ;return false'>UPDATE</button>
     
     </div>
    
@@ -66,6 +69,9 @@
 
 
 <button onclick="tryMe()">try me</button>
+
+<button onclick="displayData()">display Data</button>
+
 
 
 
@@ -125,6 +131,7 @@
     </table>
 
  <script src="exercise.js"></script>   
+ <script>{document.addEventListener('DOMContentLoaded',displayData())}</script>
 
 </body>
 </html>
