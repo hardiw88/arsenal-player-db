@@ -132,6 +132,9 @@ function editButton(index,no){
     
     document.getElementById('form-facup').value=arrayArsenalPlayers[index].achievement.title.faCup
 
+
+    document.querySelector('.form-container-input').setAttribute('onsubmit',"updatesButton(event)")
+
 }
 
 
@@ -184,6 +187,9 @@ function displayData(){
 
 
 function submitButton(){
+
+
+    
    
 }
 
@@ -210,10 +216,9 @@ function updatesButton(e){
     e.preventDefault()
 
     
-    let prevPlayerstates = arrayArsenalPlayers.map(player=>player)
+    const prevPlayerstates = JSON.parse(JSON.stringify(arrayArsenalPlayers));
 
-    let blankArray= []
-    blankArray.push(prevPlayerstates)
+
 
     // Get the updated values from the form
     const id = document.getElementById('form-id').value;
@@ -228,8 +233,18 @@ function updatesButton(e){
     const updatedFaCup = document.getElementById('form-facup');
 
 
-    //input value
+    //current input value
     const name = document.getElementById('form-name').value;
+    const no = document.getElementById('form-no').value;
+    const age = document.getElementById('form-age').value;
+    const position = document.getElementById('form-position').value;
+    const assist = document.getElementById('form-assist').value;
+    const goal = document.getElementById('form-goal').value;
+    const cleansheet = document.getElementById('form-cleansheet').value;
+    const premierleague = document.getElementById('form-premierleague').value;
+    const facup = document.getElementById('form-facup').value;
+
+
 
 
 
@@ -242,21 +257,41 @@ function updatesButton(e){
 
 
 
-    //   console.log(index,"id==>",id);
+    //new input value
     arrayArsenalPlayers[index].name = name
+    arrayArsenalPlayers[index].no = no
+    arrayArsenalPlayers[index].age = age
+    arrayArsenalPlayers[index].position = position
+    arrayArsenalPlayers[index].assist = assist
+    arrayArsenalPlayers[index].goal = goal
+    arrayArsenalPlayers[index].cleansheet = cleansheet
+    arrayArsenalPlayers[index].premierLeague = premierleague
+    arrayArsenalPlayers[index].cleansheet = cleansheet
+    arrayArsenalPlayers[index].facup = facup
+
+
+
     console.log(arrayArsenalPlayers[index], "<-- newStates");
 
-//     if(prevPlayerstates==arrayArsenalPlayers){
-//         console.log('data Not Changed!');
-// 
-//     } else{
-//         console.log('Data Changed!')
-//     } 
-//     
+    if(JSON.stringify(prevPlayerstates)===JSON.stringify(arrayArsenalPlayers)){
+        
+        if(confirm('No Data Changed. Are you sure to continue?')){
+            alert('Update canceled!');
+        }
+        
+        else {
+            return
+        }
+   
+      
 
-console.log(prevPlayerstates);
-console.log(arrayArsenalPlayers);
-console.log(blankArray);
+    } else{
+        alert('Data Changed successfully!')
+    } 
+    
+// 
+// console.log(prevPlayerstates,'prevPlayerstates');
+// console.log(arrayArsenalPlayers,'arrayArsenalPlayers');
 
 
     displayData()

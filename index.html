@@ -15,7 +15,7 @@
 
 
    <!-- input from user section -->
-   <form class="form-container-input" onsubmit="submitButton()">
+   <form class="form-container-input" type="submit"  onsubmit="submitButton(event)">
 
     <!-- player name -->
     <div class="player-name">
@@ -55,10 +55,10 @@
             <div class="form" >FA Cup: <input type="text" class="form-facup" id="form-facup"></div>
         </div>
     
-    <button type="submit" id="submit-form" class="submit-form" onclick="submitButton()">ADD NEW PLAYER</button>
+    <button type="submit" id="submit-form" class="submit-form" onclick="submitButton(); ">ADD NEW PLAYER</button>
 
    
-    <button id="edit-form" class="edit-form" onclick='updatesButton(event) ;return false'>UPDATE</button>
+    <button type="submit" id="edit-form" class="edit-form" onclick='updatesButton(event) ;return false'>UPDATE</button>
     
     </div>
    
