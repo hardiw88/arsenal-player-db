@@ -185,6 +185,14 @@ function displayData(){
                 item.achievement.cleansheet="N/A"
             }
 
+            if(!item.achievement.title.premierLeague){
+                item.achievement.title.premierLeague="N/A"
+            }
+
+            if(!item.achievement.title.faCup){
+                item.achievement.title.faCup="N/A"
+            }
+
                 //insert Cell
                 tBodyRow.insertCell().innerHTML=item.no
                 tBodyRow.insertCell(1).innerHTML=item.name
@@ -211,13 +219,10 @@ function submitButton(event){
     event.preventDefault()
 
 
+    //all the variables
     let name = document.getElementById('form-name').value
-// let id = uuid.v4()
-let no = document.getElementById('form-no').value
-let indexPlayer= (arrayArsenalPlayers.length+1).toString().padStart(3,0)
-
-
- 
+    let no = document.getElementById('form-no').value
+    let indexPlayer= (arrayArsenalPlayers.length+1).toString().padStart(3,0)
     let age = document.getElementById('form-age').value
     let position = document.getElementById('form-position').value
     let assist = document.getElementById('form-assist').value
@@ -226,35 +231,79 @@ let indexPlayer= (arrayArsenalPlayers.length+1).toString().padStart(3,0)
     let premierleague = document.getElementById('form-premierleague').value
     let facup = document.getElementById('form-facup').value
     let newDate = new Date
-    let year = (newDate.getFullYear()).toString().substring(-2,0)
-    let month = parseInt(newDate.getMonth()+1)
+    let year = (newDate.getFullYear()).toString().substring(2)
+    let month = ((newDate.getMonth()+1).toString().padStart(2,0))
     let date = newDate.getDate()
     let hour = newDate.getHours()
     let min = newDate.getMinutes()
     let id = new Date().getDate().toString()+`${name.substring(0,3)}`+`${indexPlayer}`+no
+    let uniqid = indexPlayer + `-`+getInitialName(name)+no+position+date+month+``+year
+
+    if(!name){
+        alert('Please fill the player name!')
+        return
+    }
+
+        if(!no){
+            alert('Please fill the player no!')
+            return
+
+        }
+
+        if(!age){
+            alert('Please fill the player age!')
+            return
+
+        }
+
+        if(!position){
+            alert('Please fill the player position!')
+
+            return
+        }
+        
 
 
-    console.log(name,no,age,position,assist,goal,cleansheet,premierleague,facup);
+        function getInitialName(name) {
+            let fullNameSplit = name.split(/\s+/);
+            let firstChar = fullNameSplit.map(init => init.charAt(0).toUpperCase());
+            return firstChar.join('')
+        }
+    
+    
+// 
+//     console.log(name,no,age,position,assist,goal,cleansheet,premierleague,facup);
 
-    let createPlayer = new PlayerObject(id,no,name,age,position,assist,goal,premierleague,facup)
+    let createPlayer = new PlayerObject(uniqid,no,name,age,position,assist,goal,premierleague,facup)
 
     
     arrayArsenalPlayers.push(createPlayer)
 
     console.log(arrayArsenalPlayers.at(-1));
+    console.log(arrayArsenalPlayers);
+
+
 
     // console.log(indexPlayer)
 
-    function getInitialName(name) {
-        let fullNameSplit = name.split(/\s+/);
-        let firstChar = fullNameSplit.map(init => init.charAt(0).toUpperCase());
-        return firstChar.join('')
-    }
-
+        //clear input
+    document.getElementById('form-name').value = ""
+    document.getElementById('form-name').value = ""
+    document.getElementById('form-no').value = ""
+    document.getElementById('form-age').value = ""
+    document.getElementById('form-position').value = ""
+    document.getElementById('form-assist').value = ""
+    document.getElementById('form-goal').value = ""
+    document.getElementById('form-cleansheet').value = ""
+    document.getElementById('form-premierleague').value = ""
+    document.getElementById('form-facup').value = ""
+   
+ 
+    // console.log(uniqid)
 // console.log(getInitialName(name));
 
-    let uniqid = indexPlayer + `-` + getInitialName(name)+`-`+no+`-`+position+`-`+date+`-`+month+``+`-`+year
-    console.log(uniqid)
+    // let uniqid = indexPlayer + `-` + getInitialName(name)+`-`+no+`-`+position+`-`+date+`-`+month+``+`-`+year
+    // console.log(uniqid)
     
 //     new Date().getDate().toString()+`${name.substring(0,5).toUpperCase().trim()}`+`${indexPlayer}`+no + getInitialName(name)
 // console.log(uniqid);
