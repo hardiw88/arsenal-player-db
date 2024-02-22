@@ -55,7 +55,7 @@
             <div class="form" >FA Cup: <input type="text" class="form-facup" id="form-facup"></div>
         </div>
     
-    <button type="submit" id="submit-form" class="submit-form" onclick="submitButton(); ">ADD NEW PLAYER</button>
+    <button type="submit" id="submit-form" class="submit-form" onclick="submitButton(event); ">ADD NEW PLAYER</button>
 
    
     <button type="submit" id="edit-form" class="edit-form" onclick='updatesButton(event) ;return false'>UPDATE</button>
@@ -132,6 +132,8 @@
 
  <script src="exercise.js"></script>   
  <script>{document.addEventListener('DOMContentLoaded',displayData())}</script>
+ 
+
 
 </body>
 </html>

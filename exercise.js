@@ -1,5 +1,3 @@
-
-
 const arrayArsenalPlayers = [
     {   id:1,
         no:"1",
@@ -87,6 +85,27 @@ const arrayArsenalPlayers = [
     }
 ]
 
+
+function PlayerObject(id,no,name,age,position,assist,goal,premierLeague,faCup){
+    this.id = id
+    this.name = name
+    this.no=no
+
+    this.age = age
+    this.position = position
+    this.achievement = 
+    {
+        assist :assist,
+       goal:goal,
+       title:{
+        premierLeague:premierLeague,
+        faCup:faCup
+       }
+
+    }
+}
+
+
 let arrayArsenalPlayersUpdated
 
 //if there is update, arrayArsenalPlayer = newDatabase
@@ -167,7 +186,7 @@ function displayData(){
             }
 
                 //insert Cell
-                tBodyRow.insertCell(0).innerHTML=item.no
+                tBodyRow.insertCell().innerHTML=item.no
                 tBodyRow.insertCell(1).innerHTML=item.name
                 tBodyRow.insertCell(2).innerHTML=item.age
                 tBodyRow.insertCell(3).innerHTML=item.position
@@ -186,8 +205,65 @@ function displayData(){
 
 
 
-function submitButton(){
+function submitButton(event){
 
+
+    event.preventDefault()
+
+
+    let name = document.getElementById('form-name').value
+// let id = uuid.v4()
+let no = document.getElementById('form-no').value
+let indexPlayer= (arrayArsenalPlayers.length+1).toString().padStart(3,0)
+
+
+ 
+    let age = document.getElementById('form-age').value
+    let position = document.getElementById('form-position').value
+    let assist = document.getElementById('form-assist').value
+    let goal = document.getElementById('form-goal').value
+    let cleansheet = document.getElementById('form-cleansheet').value
+    let premierleague = document.getElementById('form-premierleague').value
+    let facup = document.getElementById('form-facup').value
+    let newDate = new Date
+    let year = (newDate.getFullYear()).toString().substring(-2,0)
+    let month = parseInt(newDate.getMonth()+1)
+    let date = newDate.getDate()
+    let hour = newDate.getHours()
+    let min = newDate.getMinutes()
+    let id = new Date().getDate().toString()+`${name.substring(0,3)}`+`${indexPlayer}`+no
+
+
+    console.log(name,no,age,position,assist,goal,cleansheet,premierleague,facup);
+
+    let createPlayer = new PlayerObject(id,no,name,age,position,assist,goal,premierleague,facup)
+
+    
+    arrayArsenalPlayers.push(createPlayer)
+
+    console.log(arrayArsenalPlayers.at(-1));
+
+    // console.log(indexPlayer)
+
+    function getInitialName(name) {
+        let fullNameSplit = name.split(/\s+/);
+        let firstChar = fullNameSplit.map(init => init.charAt(0).toUpperCase());
+        return firstChar.join('')
+    }
+
+// console.log(getInitialName(name));
+
+    let uniqid = indexPlayer + `-` + getInitialName(name)+`-`+no+`-`+position+`-`+date+`-`+month+``+`-`+year
+    console.log(uniqid)
+    
+//     new Date().getDate().toString()+`${name.substring(0,5).toUpperCase().trim()}`+`${indexPlayer}`+no + getInitialName(name)
+// console.log(uniqid);
+
+displayData()
+
+    
+
+    // console.log(document.getElementById('form-name'))
 
     
    
@@ -316,7 +392,7 @@ function updatesButton(e){
 
     
 
-  
+    document.querySelector('.form-container-input').setAttribute('onsubmit',"submitButton(event)")
 
 
 
