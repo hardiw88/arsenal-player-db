@@ -833,6 +833,7 @@ imgInput.onchange = function (e) {
     //   console.log(imgInput, "imgInput")
     //   console.log(newImgUrl, "newImgUrl")
     document.getElementById("display-picture").src = newUrl
+    document.getElementById("display-picture").style.display = "block"
   }
 
   newFileReader.readAsDataURL(imgInput.files[0])
