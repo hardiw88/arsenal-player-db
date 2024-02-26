@@ -87,19 +87,36 @@ let arrayArsenalPlayers = [
 
   {
     id: 6,
-    no: "7",
-    name: "Cristiano Ronaldo",
+    no: "41",
+    name: "Declan Rice",
     age: 25,
-    position: "AMF",
+    position: "MF",
     achievement: {
-      assist: 120,
-      goal: 28,
+      assist: 11,
+      goal: 5,
       title: {
-        premierLeague: 2,
-        faCup: 3,
+        premierLeague: 0,
+        faCup: 1,
       },
     },
-    img: "data:image/jpeg;base64,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",
+    img: "/img/declanrice.jpg",
+  },
+
+  {
+    id: 7,
+    no: "18",
+    name: "Takehiro Tomiyasu",
+    age: 26,
+    position: "R/C/LB",
+    achievement: {
+      assist: 3,
+      goal: 1,
+      title: {
+        premierLeague: 0,
+        faCup: 1,
+      },
+    },
+    img: "/img/tomiyasu.jpg",
   },
 ]
 
@@ -168,11 +185,15 @@ function editButton(index, no) {
   //   changeLabel.setAttribute("class", "hidedisplay")
   //   changeLabel.setAttribute("class", "disabled")
 
-  ;(document.getElementById("submit-form").style.backgroundColor = "#dfd9d9"),
-    //   (document.getElementById("submit-form").style.display = "none"),
-    (document.getElementById("edit-form").style.display = "block"),
-    document.getElementById("submit-form").remove(),
-    console.log(arrayArsenalPlayers[index])
+  document.getElementById("submit-form").style.backgroundColor = "#dfd9d9"
+
+  document.getElementById("submit-form").style.pointerEvents = "none"
+
+  //   (document.getElementById("submit-form").style.display = "none"),
+  document.getElementById("edit-form").style.display = "block"
+
+  // document.getElementById("submit-form").style.display = "none"
+  console.log(arrayArsenalPlayers[index])
 
   document.getElementById("form-id").value = arrayArsenalPlayers[index].id
 
@@ -193,6 +214,8 @@ function editButton(index, no) {
   document.getElementById("form-premierleague").value = arrayArsenalPlayers[index].achievement.title.premierLeague
 
   document.getElementById("form-facup").value = arrayArsenalPlayers[index].achievement.title.faCup
+
+  // document.getElementById("form-img").files[0].name = arrayArsenalPlayers[index].img
 
   document.getElementById("display-picture").style.display = "block"
   document.getElementById("display-picture").src = arrayArsenalPlayers[index].img
@@ -269,7 +292,7 @@ function editButton(index, no) {
 //         })
 // }
 
-function displayData(e) {
+function displayData(e, index) {
   //=========================
   // ITERATE OVER ARRAY
   //=========================
@@ -336,7 +359,7 @@ function displayData(e) {
     }
 
     tBodyRow.insertCell().innerHTML = `<button onclick="editButton(${index})">Edit</button>`
-    tBodyRow.insertCell().innerHTML = `x`
+    tBodyRow.insertCell().innerHTML = `<a href="#" onclick="deleteButton(${index})">x</a>`
   })
 }
 
@@ -391,41 +414,8 @@ function submitButton(event) {
     return
   }
 
-  //
-  //     console.log(name,no,age,position,assist,goal,cleansheet,premierleague,facup);
-
-  //   let imgDiv = document.querySelector(".form-img")
-  //   if (imgDiv.files && imgDiv.files[0]) {
-  //     let fileReader = new FileReader()
-  //
-  //     fileReader.onload = function (e) {
-  //       let imgOfUrl = e.target.result
-  //       img += imgOfUrl
-  //       console.log(imgOfUrl, "imgOfUrl")
-  //       console.log(img, "img")
-  //     }
-  //
-  //     fileReader.readAsDataURL(imgDiv.files[0])
-  //   }
-
-  //   let imgInput1 = document.getElementById("form-img")
-  //   let imgInput2 = document.getElementById("form-img2")
-  //
-  //   imgInput2.onchange(function () {
-  //     if (imgInput2.files && imgInput2.files[0]) {
-  //       let newFileReader = new FileReader()
-  //
-  //       newFileReader.onload = function (e) {
-  //         let newImgUrl = e.target.result
-  //         imgInput2.src = newImgUrl
-  //         console.log(newImage)
-  //       }
-  //
-  //       newFileReader.readAsDataURL(imgInput2.files[0])
-  //     }
-  //   })
-
   let createPlayer = new PlayerObject(uniqid, no, name, age, position, assist, goal, cleansheet, premierleague, facup)
+
   createPlayer.img = newUrl
 
   arrayArsenalPlayers.push(createPlayer)
@@ -470,7 +460,9 @@ function submitButton(event) {
   isEdit = false
 }
 
-//BUTTON-UPDATE
+//==============================
+//BUTTON UPDATE
+//==============================
 function updatesButton(e) {
   e.preventDefault()
 
@@ -512,7 +504,11 @@ function updatesButton(e) {
   arrayArsenalPlayers[index].achievement.cleansheet = cleansheet
   arrayArsenalPlayers[index].achievement.title.premierLeague = premierleague
   arrayArsenalPlayers[index].achievement.title.faCup = facup
-  arrayArsenalPlayers[index].img = newUrl
+
+  let fileInput = document.getElementById("form-img")
+  if (fileInput.files && fileInput.files[0]) {
+    arrayArsenalPlayers[index].img = newUrl
+  }
 
   console.log(arrayArsenalPlayers[index])
 
@@ -568,32 +564,37 @@ function updatesButton(e) {
     console.log(JSON.stringify(arrayArsenalPlayers[index]))
   }
 
-  //
+  location.reload()
+
+  let formValue = document.getElementById("form-container-input")
+  formValue.reset()
+
   // console.log(prevPlayerstates,'prevPlayerstates');
   // console.log(arrayArsenalPlayers,'arrayArsenalPlayers');
   // console.log(id,'player ID');
-
   displayData()
 
   //clear input
-  updatedName.value = ""
-  updatedNo.value = ""
-  updatedAge.value = ""
-  updatedPosition.value = ""
-  updatedAssist.value = ""
-  updatedGoal.value = ""
-  updatedCleansheet.value = ""
-  updatedPremierLeague.value = ""
-  updatedFaCup.value = ""
-  document.getElementById("form-img").value = ""
-
+  //   updatedName.value = ""
+  //   updatedNo.value = ""
+  //   updatedAge.value = ""
+  //   updatedPosition.value = ""
+  //   updatedAssist.value = ""
+  //   updatedGoal.value = ""
+  //   updatedCleansheet.value = ""
+  //   updatedPremierLeague.value = ""
+  //   updatedFaCup.value = ""
+  //   document.getElementById("form-img").value = ""
+  document.getElementById("display-picture").style.display = "none"
+  //
   document.getElementById("edit-form").style.display = "none"
   document.getElementById("submit-form").style.backgroundColor = "#d20404"
   document.getElementById("submit-form").style.pointerEvents = "auto"
   //
-  //   document.querySelector(".form-container-input").setAttribute("onsubmit", "submitButton(event)")
+  document.getElementById("submit-form").style.display = "block"
 
-  location.reload()
+  //
+  document.querySelector(".form-container-input").setAttribute("onsubmit", "submitButton(event)")
 }
 
 // function updatesButton(e){
@@ -856,6 +857,15 @@ function onKeyEnter(event) {
     }
     return false
   }
+}
+
+function deleteButton(index) {
+  // event.preventDefault()
+  console.log(index, "index")
+  arrayArsenalPlayers.splice(index, 1)
+  console.log(arrayArsenalPlayers)
+  localStorage.setItem("playerDB", JSON.stringify(arrayArsenalPlayers))
+  displayData()
 }
 
 // document.querySelector(".form-container-input").addEventListener("keydown", onKeyEnter)
