@@ -15,11 +15,16 @@
 
 
    <!-- input from user section -->
-   <form class="form-container-input" type="submit"  onsubmit="submitButton(event)">
+   <form class="form-container-input" type="submit" onsubmit="onKeyEnter(event);return false">
 
     <!-- player name -->
     <div class="player-name">
         <div class="form" >Player Name: <input type="text" class="form-name" id="form-name" required></div>
+       <br/> <div class="form" >Input Pics: <input type='file' class="form-img" id="form-img" accept="image/*" ></div>
+
+        <img class="display-picture" id="display-picture" ></img>
+    </div>
+        
     </div>
 
 
@@ -53,18 +58,22 @@
 
             <div class="form" >Premier League Cup: <input type="text" class="form-premierleague" id="form-premierleague"></div>
             <div class="form" >FA Cup: <input type="text" class="form-facup" id="form-facup"></div>
-        </div>
-    
-    <button type="submit" id="submit-form" class="submit-form" onclick="submitButton(event); ">ADD NEW PLAYER</button>
+        </div>  
 
-   
-    <button type="submit" id="edit-form" class="edit-form" onclick='updatesButton(event) ;return false'>UPDATE</button>
+       
+    
+    <button id="submit-form" class="submit-form" >ADD NEW PLAYER</button>
+
+    <button id="edit-form" class="edit-form">UPDATE</button>
+
+
+
     
     </div>
    
 
 
-</form> 
+</form>
 
 
 
@@ -87,6 +96,8 @@
             <tr>
                 
                 <th rowspan="3">No.</th>
+                <th rowspan="3">Pics</th>
+
                 <th rowspan="3">Name</th>
                 <th rowspan="3">Age</th>
                 <th rowspan="3">Pos</th>
