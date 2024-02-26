@@ -184,10 +184,13 @@ function editButton(index, no) {
   //   let changeLabel = document.getElementById("submit-form")
   //   changeLabel.setAttribute("class", "hidedisplay")
   //   changeLabel.setAttribute("class", "disabled")
+  //
+  //   document.getElementById("submit-form").style.backgroundColor = "#dfd9d9"
+  //
+  //   document.getElementById("submit-form").style.pointerEvents = "none"
 
-  document.getElementById("submit-form").style.backgroundColor = "#dfd9d9"
-
-  document.getElementById("submit-form").style.pointerEvents = "none"
+  document.getElementById("submit-form").style.display = "none"
+  document.getElementById("cancel-edit").style.display = "block"
 
   //   (document.getElementById("submit-form").style.display = "none"),
   document.getElementById("edit-form").style.display = "block"
@@ -302,6 +305,7 @@ function displayData(e, index) {
     //create new Row
     const tBodySpace = document.getElementById("tbody")
     const tBodyRow = tBodySpace.insertRow()
+    tBodyRow.setAttribute("class", "tbodys")
 
     //insert Cell
     tBodyRow.insertCell().innerHTML = item.no
@@ -316,7 +320,7 @@ function displayData(e, index) {
                 <center><img src="${item.img}" class="player-img"/></center>`
     }
 
-    tBodyRow.insertCell().innerHTML = item.name
+    tBodyRow.insertCell().innerHTML = `<span class="player-names"><strong>${item.name}</strong></span>`
     tBodyRow.insertCell().innerHTML = item.age
     tBodyRow.insertCell().innerHTML = item.position
 
@@ -358,8 +362,8 @@ function displayData(e, index) {
       tBodyRow.insertCell().innerHTML = item.achievement.title.faCup
     }
 
-    tBodyRow.insertCell().innerHTML = `<button onclick="editButton(${index})">Edit</button>`
-    tBodyRow.insertCell().innerHTML = `<a href="#" onclick="deleteButton(${index})">x</a>`
+    tBodyRow.insertCell().innerHTML = `<button id="button-edit" onclick="editButton(${index})">Edit</button>`
+    tBodyRow.insertCell().innerHTML = `<a href="#" onclick="deleteButton(${index})"><strong>X</strong></a>`
   })
 }
 
@@ -443,6 +447,8 @@ function submitButton(event) {
   document.getElementById("form-facup").value = ""
   imgInput.value = ""
 
+  location.reload()
+  alert("Player Added Successfully!")
   displayData()
 
   //ALL THE CONSOLE LOG
@@ -867,15 +873,29 @@ formInput.addEventListener("keypress", function (event) {
 // }
 
 function deleteButton(index) {
+  if (confirm("Are you sure want to delete this player?")) {
+    console.log(index, "index")
+    arrayArsenalPlayers.splice(index, 1)
+    console.log(arrayArsenalPlayers)
+    localStorage.setItem("playerDB", JSON.stringify(arrayArsenalPlayers))
+    location.reload()
+
+    displayData()
+
+    alert("Player successfully deleted!")
+  }
   // event.preventDefault()
-  console.log(index, "index")
-  arrayArsenalPlayers.splice(index, 1)
-  console.log(arrayArsenalPlayers)
-  localStorage.setItem("playerDB", JSON.stringify(arrayArsenalPlayers))
-  displayData()
 }
 
 // document.querySelector(".form-container-input").addEventListener("keydown", onKeyEnter)
 
 document.getElementById("submit-form").addEventListener("click", submitButton)
 document.getElementById("edit-form").addEventListener("click", updatesButton)
+
+function cancelEdit() {
+  alert("Player edit canceled!")
+  location.reload()
+}
+
+let cancelEditDiv = document.getElementById("cancel-edit")
+cancelEditDiv.addEventListener("click", cancelEdit)

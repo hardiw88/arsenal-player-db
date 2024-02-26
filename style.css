@@ -28,7 +28,22 @@ table {
 tr,
 td {
   border: 1px solid rgb(228, 225, 225);
-  padding: 10px;
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgba(241, 244, 241, 0.653);
+}
+
+.tbody {
+  background-color: rgb(184, 163, 163);
+  text-align: center;
+}
+.tbodys {
+  height: 0px !important;
+  padding: 0 10px 0 10px;
+  margin: auto;
+  box-sizing: border-box;
+  font-size: 13px;
 }
 
 th {
@@ -57,18 +72,20 @@ thead {
 
 .form-input {
   display: flex;
-  /* border: 1px solid black; */
+  border: 1px solid black;
   width: auto;
   flex-wrap: wrap;
   margin: 0 10px 0 10px;
   padding: 10px;
   justify-content: center;
+  flex: 2;
 }
 
 .form {
 }
 
 #form-name {
+  border: 1px solid blue;
   margin-left: 10px;
   width: 60%;
 }
@@ -84,28 +101,32 @@ thead {
 }
 
 .player-name {
+  margin: auto;
   font-weight: bold;
   text-align: center;
-  /* border: 1px solid rgb(12, 161, 253); */
-  width: 500px;
+  border: 1px solid rgb(12, 161, 253);
+  flex: 1;
+  height: 200px;
+  box-sizing: border-box;
+  overflow: scroll;
 }
 
 .basic-info {
   padding: 10px;
   margin: 0 10px 0 10px;
-  /* border: 1px solid red; */
+  border: 1px solid red;
 }
 
 .achievement {
   padding: 10px;
   margin: 0 10px 0 10px;
-  /* border: 1px solid rgb(4, 200, 73); */
+  border: 1px solid rgb(4, 200, 73);
 }
 
 .title {
   padding: 10px;
   margin: 0 10px 0 10px;
-  /* border: 1px solid rgb(6, 80, 218); */
+  border: 1px solid rgb(6, 80, 218);
 }
 
 input {
@@ -123,10 +144,12 @@ h3 {
 }
 
 .form-container-input {
+  display: flex;
   /* display: none; */
   border: 1px solid rgb(193, 188, 188);
   border-radius: 10px;
-  width: 600px;
+  width: 1000px;
+  /* align-items: center; */
   margin: 0 auto 20px auto;
   padding: 10px 0 0 0;
 }
@@ -139,6 +162,7 @@ h3 {
   color: white;
   background-color: #d20404;
   margin-bottom: 10px;
+  margin: 10px 0 0 0;
 }
 
 .submit-form:hover {
@@ -173,9 +197,24 @@ h3 {
   border-radius: 5px;
   border: 0px;
   color: white;
-  background-color: rgb(242, 162, 15);
+  background-color: rgb(5, 157, 27);
   margin-bottom: 10px;
   cursor: pointer;
+  margin: 10px 0 0 0;
+  font-weight: bold;
+}
+
+.cancel-edit {
+  display: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 0px;
+  color: white;
+  background-color: rgb(245, 176, 48);
+  margin-bottom: 10px;
+  cursor: pointer;
+  margin: 10px 0 0 0;
 }
 
 .edit-form:hover {
@@ -188,17 +227,40 @@ h3 {
 
 .player-img {
   /* border: 1px solid black; */
-  height: 60px;
-  width: 50px;
+  height: 40px;
+  width: 30px;
   border-radius: 50%;
+  padding: 0 10px 0 10px;
+}
+
+#button-edit {
+  padding: 5px 10px 5px 10px;
+}
+
+.player-names {
+  float: left;
+  padding: 0 0 0 10px;
+}
+
+.form-img {
+  border: 1px solid black;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.pics {
+  background-color: rgba(232, 253, 250, 0.556);
+  align-items: center;
+  text-align: center;
 }
 
 .display-picture {
+  border: 2px solid rgb(222, 12, 44);
   display: none;
-  margin: auto;
-  position: relative;
+  /* position: relative; */
   padding: 10px;
   border-radius: 50%;
   height: 100px;
   width: 100px;
+  margin: 30px 30px 30px 30px;
 }
