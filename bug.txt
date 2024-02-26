@@ -2,7 +2,7 @@ bug:
 + edit couldn't upload pics
 + edit not reveal the img name
 + upon update not clear choose image input
-- click enter error(only get update fuinction)
++ click enter error(only get update fuinction)
 - cannot choose file more than 1 time, it result in err_INV_URL
 - display image not appear upon upload file(image)
 
@@ -12,3 +12,22 @@ added:
 next:
 + add delete button
 
+
+I change to this and all the button is not working when user press enter button 
+
+  <form class="form-container-input" id="form-container-input" method="submit" onsubmit="submitButton(event); " >
+
+
+ <button id="edit-form" class="edit-form" type="button">UPDATE</button>
+
+       
+    
+    <button id="submit-form" class="submit-form" type="button">ADD NEW PLAYER</button>
+
+</form>
+
+
+My question:
+- Why is this happened?
+- Provide Solution
+- Provide Logic for the problem

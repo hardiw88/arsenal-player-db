@@ -193,7 +193,7 @@ function editButton(index, no) {
   document.getElementById("edit-form").style.display = "block"
 
   // document.getElementById("submit-form").style.display = "none"
-  console.log(arrayArsenalPlayers[index])
+  // console.log(arrayArsenalPlayers[index])
 
   document.getElementById("form-id").value = arrayArsenalPlayers[index].id
 
@@ -222,7 +222,7 @@ function editButton(index, no) {
 
   //   imgInput.value = 123
 
-  console.log(arrayArsenalPlayers[index].img)
+  // console.log(arrayArsenalPlayers[index].img)
 
   //   let newPlayerData = {
   //     name: (document.getElementById("form-img").files[0] = arrayArsenalPlayers[index].img),
@@ -463,8 +463,8 @@ function submitButton(event) {
 //==============================
 //BUTTON UPDATE
 //==============================
-function updatesButton(e) {
-  e.preventDefault()
+function updatesButton(event) {
+  event.preventDefault()
 
   const prevPlayerstates = JSON.parse(JSON.stringify(arrayArsenalPlayers))
 
@@ -841,23 +841,29 @@ imgInput.onchange = function (e) {
 }
 //
 
-function onKeyEnter(event) {
-  event.preventDefault()
-  let formInput = document.getElementById("form-container-input")
-  //   event.preventDefault()
+// function onKeyEnter(event) {
+let formInput = document.getElementById("form-container-input")
+//   event.preventDefault()
+
+formInput.addEventListener("keypress", function (event) {
+  // event.preventDefault()
+
   if (event.key === "Enter") {
     if (isEdit === false) {
       console.log("ENTER PRESSED  (EDIT = FALSE)")
+      submitButton(event)
 
-      formInput.setAttribute("onsubmit", submitButton)
+      // formInput.setAttribute("onsubmit", submitButton)
     } else {
       console.log("ENTER PRESSED  (EDIT = TRUE)")
 
-      formInput.setAttribute("onsubmit", updatesButton())
+      updatesButton(event)
     }
     return false
   }
-}
+})
+
+// }
 
 function deleteButton(index) {
   // event.preventDefault()
