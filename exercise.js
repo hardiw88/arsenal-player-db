@@ -1,5 +1,6 @@
 let localStorageArsenaldb = JSON.parse(localStorage.getItem("playerDB"))
 let isEdit = false
+let isNewForm = false
 let arrayArsenalPlayers = [
   {
     id: 1,
@@ -169,9 +170,12 @@ let newUrl = ""
 // FUNCTION BUTTON[EDIT]
 //=========================
 function editButton(index, no) {
+  displayContainerInput()
+
   isEdit = true
   console.log(`isEdit=` + isEdit)
   document.getElementById("form-facup").value = null
+
   //   let submitType = document.querySelector(".form-container-input")
   //
   //   submitType.setAttribute("onsubmit", "updatesButton(event)")
@@ -899,3 +903,43 @@ function cancelEdit() {
 
 let cancelEditDiv = document.getElementById("cancel-edit")
 cancelEditDiv.addEventListener("click", cancelEdit)
+
+function displayContainerInput() {
+  isNewForm = true
+
+  if (isNewForm) {
+    isEdit = false
+    console.log("isNewForm ", isNewForm)
+    document.getElementById("form-container-input").reset()
+
+    if (document.getElementById("form-container-input").classList.contains("displayflex")) {
+      console.log("sudah ADA DISPLAYFLEX")
+    } else {
+      console.log("BELUM ADA DISPLAYFLEX")
+
+      document.getElementById("form-container-input").classList.toggle("displayflex")
+    }
+
+    //button display
+    document.getElementById("submit-form").style.display = "block"
+    document.getElementById("cancel-edit").style.display = "block"
+
+    //   (document.getElementById("submit-form").style.display = "none"),
+    document.getElementById("edit-form").style.display = "none"
+    document.querySelector("#display-picture").src = ""
+
+    document.getElementById("display-picture").style.display = "none"
+
+    // document.getElementById("submit-form").style.display = "none"
+    // console.log(arrayArsenalPlayers[index])
+  }
+
+  // document.getElementById("form-container-input").setAttribute(".displayflex")
+  // if (!document.getElementById("form-container-input").getAttribute(".displayflex")) {
+  //   document.getElementById("form-container-input").classList.toggle("displayflex")
+  // } else {
+  //   location.reload()
+  // }
+}
+
+document.getElementById("add-new-player").addEventListener("click", displayContainerInput)

@@ -145,7 +145,7 @@ h3 {
 
 .form-container-input {
   display: flex;
-  /* display: none; */
+  display: none;
   border: 1px solid rgb(193, 188, 188);
   border-radius: 10px;
   width: 1000px;
@@ -175,8 +175,8 @@ h3 {
   cursor: pointer;
 }
 
-.hidedisplay {
-  display: none;
+.displayflex {
+  display: flex;
 }
 
 .disabled {
@@ -210,19 +210,26 @@ h3 {
   padding: 10px;
   border-radius: 5px;
   border: 0px;
-  color: white;
-  background-color: rgb(245, 176, 48);
+  color: rgb(255, 0, 0);
+  background-color: transparent;
   margin-bottom: 10px;
   cursor: pointer;
   margin: 10px 0 0 0;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cancel-edit:hover {
+  text-decoration: underline;
 }
 
 .edit-form:hover {
-  background-color: rgb(166, 113, 14);
+  background-color: rgb(4, 113, 13);
 }
 
 .edit-form:active {
-  background-color: rgb(108, 74, 9);
+  background-color: rgb(10, 17, 211);
 }
 
 .player-img {
@@ -263,4 +270,11 @@ h3 {
   height: 100px;
   width: 100px;
   margin: 30px 30px 30px 30px;
+}
+
+.button-menu {
+  /* border: 1px solid green; */
+  align-items: center;
+  text-align: center;
+  margin: 0 0 10px 0;
 }
