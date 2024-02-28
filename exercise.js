@@ -160,139 +160,54 @@ let newUrl = ""
 //=========================
 // FUNCTION BUTTON[EDIT]
 //=========================
-function editButton(index, no) {
+function editButton(id) {
+  console.log("=======================")
+  console.log("--- event BEHAVIOUR ---")
+  console.log("=======================")
   toggleForm = ""
   isEdit = true
   toggleForm = "Edit"
+  displayContainerInput()
 
-  console.log(`isEdit=` + isEdit)
+  let index = arrayArsenalPlayers.findIndex((player) => player.id === id)
+  console.log(`isEdit = ` + isEdit)
+  console.log(`toggleForm = ` + toggleForm)
+  console.log("Player Name = ", arrayArsenalPlayers[index].name)
+
+  console.log("index = ", index)
+
+  console.log("Player ID = ", id)
+
+  console.log("=======================")
+  //   console.log(arrayArsenalPlayers[index].id, " id")
+  //
+  //
   document.getElementById("form-facup").value = null
 
-  //   let submitType = document.querySelector(".form-container-input")
-  //
-  //   submitType.setAttribute("onsubmit", "updatesButton(event)")
-  //
-  //   console.log(submitType.getAttribute("onsubmit"))
-
-  let formContainerInput = document.querySelector(".form-container-input")
-  // formContainerInput.classList.toggle("hidedisplay")
-
-  //   let changeLabel = document.getElementById("submit-form")
-  //   changeLabel.setAttribute("class", "hidedisplay")
-  //   changeLabel.setAttribute("class", "disabled")
-  //
-  //   document.getElementById("submit-form").style.backgroundColor = "#dfd9d9"
-  //
-  //   document.getElementById("submit-form").style.pointerEvents = "none"
-
+  //      Button-behaviour
   document.getElementById("submit-form").style.display = "none"
   document.getElementById("cancel-edit").style.display = "block"
-
-  //   (document.getElementById("submit-form").style.display = "none"),
   document.getElementById("edit-form").style.display = "block"
 
-  // document.getElementById("submit-form").style.display = "none"
-  // console.log(arrayArsenalPlayers[index])
-
+  //      Input Retrieved
   document.getElementById("form-id").value = arrayArsenalPlayers[index].id
-
   document.getElementById("form-name").value = arrayArsenalPlayers[index].name
-
   document.getElementById("form-no").value = arrayArsenalPlayers[index].no
-
   document.getElementById("form-age").value = arrayArsenalPlayers[index].age
-
   document.getElementById("form-position").value = arrayArsenalPlayers[index].position
-
   document.getElementById("form-assist").value = arrayArsenalPlayers[index].achievement.assist
-
   document.getElementById("form-goal").value = arrayArsenalPlayers[index].achievement.goal
-
   document.getElementById("form-cleansheet").value = arrayArsenalPlayers[index].achievement.cleansheet
-
   document.getElementById("form-premierleague").value = arrayArsenalPlayers[index].achievement.title.premierLeague
-
   document.getElementById("form-facup").value = arrayArsenalPlayers[index].achievement.title.faCup
 
   // document.getElementById("form-img").files[0].name = arrayArsenalPlayers[index].img
 
   document.getElementById("display-picture").style.display = "block"
   document.getElementById("display-picture").src = arrayArsenalPlayers[index].img
-
-  //   imgInput.value = 123
-
-  // console.log(arrayArsenalPlayers[index].img)
-
-  //   let newPlayerData = {
-  //     name: (document.getElementById("form-img").files[0] = arrayArsenalPlayers[index].img),
-  //   }
-  //
-  //   console.log(`newPlayerData`, newPlayerData)
-  //   let imgDiv = document.querySelector(".form-img")
-  //
-  //   if (imgDiv.files && img.files[0]) {
-  //     document.getElementById("form-img").files[0] = arrayArsenalPlayers[index].img
-  //     console.log("there is file uploaded!")
-  //   } else {
-  //     console.log("no file uploaded")
-  //   }
-  displayContainerInput()
 }
 
-// function displayData(){
-//     //=========================
-//     // ITERATE OVER ARRAY
-//     //=========================
-//     document.getElementById('tbody').innerHTML=""
-//         arrayArsenalPlayers.forEach((item,index)=>{
-//
-//
-//
-//             //create new Row
-//             const tBodySpace = document.getElementById('tbody')
-//             const tBodyRow = tBodySpace.insertRow()
-//
-//
-//             //try check
-//             if(!item.achievement.goal){
-//                 item.achievement.goal="N/A"
-//             }
-//
-//             if(!item.achievement.assist){
-//                 item.achievement.assist="N/A"
-//             }
-//
-//             if(!item.achievement.cleansheet){
-//                 item.achievement.cleansheet="N/A"
-//             }
-//
-//             if(!item.achievement.title.premierLeague){
-//                 item.achievement.title.premierLeague="N/A"
-//             }
-//
-//             if(!item.achievement.title.faCup){
-//                 item.achievement.title.faCup="N/A"
-//             }
-//
-//                 //insert Cell
-//                 tBodyRow.insertCell().innerHTML=item.no
-//                 tBodyRow.insertCell(1).innerHTML=item.name
-//                 tBodyRow.insertCell(2).innerHTML=item.age
-//                 tBodyRow.insertCell(3).innerHTML=item.position
-//                 tBodyRow.insertCell(4).innerHTML=item.achievement.assist
-//                 tBodyRow.insertCell(5).innerHTML=item.achievement.goal
-//                 tBodyRow.insertCell(6).innerHTML=item.achievement.cleansheet
-//                 tBodyRow.insertCell(7).innerHTML=item.achievement.title.premierLeague
-//                 tBodyRow.insertCell(8).innerHTML=item.achievement.title.faCup
-//                 tBodyRow.insertCell(9).innerHTML=`<button onclick="editButton(${index})">Edit</button>`
-//                 tBodyRow.insertCell(10).innerHTML=`x`
-//
-//
-//
-//         })
-// }
-
-function displayData(filteredPlayer) {
+function displayData(filteredPlayer, id) {
   //=========================
   // ITERATE OVER ARRAY
   //=========================
@@ -364,12 +279,15 @@ function displayData(filteredPlayer) {
       tBodyRow.insertCell().innerHTML = item.achievement.title.faCup
     }
 
-    tBodyRow.insertCell().innerHTML = `<button id="button-edit" onclick="editButton(${index})">Edit</button>`
-    tBodyRow.insertCell().innerHTML = `<a href="#" onclick="deleteButton(${index})"><strong>X</strong></a>`
+    tBodyRow.insertCell().innerHTML = `<button id="button-edit" onclick="editButton(${item.id})">Edit</button>`
+
+    tBodyRow.insertCell().innerHTML = `<a href="#" onclick="deleteButton(${item.id})"><strong>X</strong></a>`
   })
 }
 
-//button-submit
+//==============================
+//BUTTON SUBMIT
+//==============================
 function submitButton(event) {
   //   event.preventDefault()
 
@@ -874,10 +792,19 @@ formInput.addEventListener("keypress", function (event) {
 
 // }
 
-function deleteButton(index) {
+function deleteButton(id) {
+  let playerIndex = arrayArsenalPlayers.findIndex((player) => player.id === id)
+  console.log("=======================")
+  console.log("--- event BEHAVIOUR ---")
+  console.log("=======================")
+  console.log("index = ", playerIndex)
+  console.log("id = ", id)
+  console.log("name = ", arrayArsenalPlayers[playerIndex].name)
+  console.log("=======================")
+  console.table(arrayArsenalPlayers[playerIndex])
+
   if (confirm("Are you sure want to delete this player?")) {
-    console.log(index, "index")
-    arrayArsenalPlayers.splice(index, 1)
+    arrayArsenalPlayers.splice(playerIndex, 1)
     console.log(arrayArsenalPlayers)
     localStorage.setItem("playerDB", JSON.stringify(arrayArsenalPlayers))
     location.reload()

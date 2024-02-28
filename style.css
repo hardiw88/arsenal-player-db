@@ -71,8 +71,10 @@ thead {
 }
 
 .form-input {
+  flex-wrap: wrap;
+
   display: flex;
-  border: 1px solid black;
+  border: 1px dashed black;
   width: auto;
   flex-wrap: wrap;
   margin: 0 10px 0 10px;
@@ -85,7 +87,7 @@ thead {
 }
 
 #form-name {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   margin-left: 10px;
   width: 60%;
 }
@@ -105,6 +107,7 @@ thead {
   font-weight: bold;
   text-align: center;
   border: 1px solid rgb(12, 161, 253);
+  flex-wrap: wrap;
   flex: 1;
   height: 200px;
   box-sizing: border-box;
@@ -112,18 +115,24 @@ thead {
 }
 
 .basic-info {
+  flex-wrap: wrap;
+
   padding: 10px;
   margin: 0 10px 0 10px;
   border: 1px solid red;
 }
 
 .achievement {
+  flex-wrap: wrap;
+
   padding: 10px;
   margin: 0 10px 0 10px;
   border: 1px solid rgb(4, 200, 73);
 }
 
 .title {
+  flex-wrap: wrap;
+
   padding: 10px;
   margin: 0 10px 0 10px;
   border: 1px solid rgb(6, 80, 218);
@@ -144,6 +153,8 @@ h3 {
 }
 
 .form-container-input {
+  flex-wrap: wrap;
+
   display: flex;
   display: none;
   border: 1px solid rgb(193, 188, 188);
@@ -221,6 +232,8 @@ h3 {
 }
 
 .cancel-edit:hover {
+  background-color: rgba(226, 223, 16, 0.309);
+  border: 1px dashed rgb(251, 17, 17);
   text-decoration: underline;
 }
 
@@ -286,19 +299,25 @@ h3 {
 }
 
 .search-player-input {
-  background-color: rgba(204, 80, 80, 0.194);
-
-  font-size: 18px;
+  background-color: rgba(167, 13, 13, 0.194);
+  text-transform: capitalize;
+  font-size: 23px;
   border: 1px solid grey;
-  color: rgb(0, 0, 13);
+  color: #000000;
   border-radius: 5px;
   padding: 5px 0 5px 0;
   text-align: center;
-  width: 650px;
+  width: 1000px;
   margin: 0 0 20px 0;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.search-player-input::placeholder {
+  font-size: 18px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .toggleSearch {
   display: flex;
+  font-size: 18px;
 }

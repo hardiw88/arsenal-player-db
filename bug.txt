@@ -1,14 +1,22 @@
 bug:
+- when search, and click edit the index refer to filtered player and not the choosen player
+- cannot choose file more than 1 time, it result in err_INV_URL
+
+
+done:
 + edit couldn't upload pics
 + edit not reveal the img name
 + upon update not clear choose image input
 + click enter error(only get update fuinction)
-- cannot choose file more than 1 time, it result in err_INV_URL
++ pic below input pics
++ add delete button
++ add search button and input
 + display image not appear upon upload file(image)
 
-added:
-+ pic below input pics
 
 next:
-+ add delete button
+
+
+
+
 
