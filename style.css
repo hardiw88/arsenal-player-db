@@ -234,8 +234,8 @@ h3 {
 
 .player-img {
   /* border: 1px solid black; */
-  height: 40px;
-  width: 30px;
+  height: 50px;
+  width: 40px;
   border-radius: 50%;
   padding: 0 10px 0 10px;
 }
@@ -277,4 +277,28 @@ h3 {
   align-items: center;
   text-align: center;
   margin: 0 0 10px 0;
+}
+
+.div-search {
+  display: none;
+  justify-content: center;
+  /* border: 1px solid black; */
+}
+
+.search-player-input {
+  background-color: rgba(204, 80, 80, 0.194);
+
+  font-size: 18px;
+  border: 1px solid grey;
+  color: rgb(0, 0, 13);
+  border-radius: 5px;
+  padding: 5px 0 5px 0;
+  text-align: center;
+  width: 650px;
+  margin: 0 0 20px 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.toggleSearch {
+  display: flex;
 }

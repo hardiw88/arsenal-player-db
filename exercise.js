@@ -1,6 +1,7 @@
 let localStorageArsenaldb = JSON.parse(localStorage.getItem("playerDB"))
 let isEdit = false
 let isNewForm = false
+let toggleForm = ""
 let arrayArsenalPlayers = [
   {
     id: 1,
@@ -121,14 +122,6 @@ let arrayArsenalPlayers = [
   },
 ]
 
-// if (!localStorageArsenaldb) {
-//   arrayArsenalPlayers = arrayArsenalPlayers
-//   console.log(`arrayArsenalPlayers = arrayArsenalPlayers`, arrayArsenalPlayers)
-// } else {
-//   arrayArsenalPlayers = localStorageArsenaldb
-//   console.log(`arrayArsenalPlayers = localStorageArsenaldb`, localStorageArsenaldb)
-// }
-
 if (localStorageArsenaldb) {
   arrayArsenalPlayers = localStorageArsenaldb
 
@@ -164,15 +157,14 @@ let imgInput = document.getElementById("form-img")
 
 let newUrl = ""
 
-//if there is update, arrayArsenalPlayer = newDatabase
-
 //=========================
 // FUNCTION BUTTON[EDIT]
 //=========================
 function editButton(index, no) {
-  displayContainerInput()
-
+  toggleForm = ""
   isEdit = true
+  toggleForm = "Edit"
+
   console.log(`isEdit=` + isEdit)
   document.getElementById("form-facup").value = null
 
@@ -244,6 +236,7 @@ function editButton(index, no) {
   //   } else {
   //     console.log("no file uploaded")
   //   }
+  displayContainerInput()
 }
 
 // function displayData(){
@@ -299,13 +292,18 @@ function editButton(index, no) {
 //         })
 // }
 
-function displayData(e, index) {
+function displayData(filteredPlayer) {
   //=========================
   // ITERATE OVER ARRAY
   //=========================
 
+  let inputValue = document.getElementById("search-player-input").value.toLowerCase()
+
+  let displayedPlayer = filteredPlayer || arrayArsenalPlayers
+
+  // console.log(displayedPlayer)
   document.getElementById("tbody").innerHTML = ""
-  arrayArsenalPlayers.forEach((item, index) => {
+  displayedPlayer.forEach((item, index) => {
     //create new Row
     const tBodySpace = document.getElementById("tbody")
     const tBodyRow = tBodySpace.insertRow()
@@ -885,16 +883,11 @@ function deleteButton(index) {
     location.reload()
 
     displayData()
-
-    alert("Player successfully deleted!")
   }
   // event.preventDefault()
 }
 
 // document.querySelector(".form-container-input").addEventListener("keydown", onKeyEnter)
-
-document.getElementById("submit-form").addEventListener("click", submitButton)
-document.getElementById("edit-form").addEventListener("click", updatesButton)
 
 function cancelEdit() {
   alert("Player edit canceled!")
@@ -904,22 +897,16 @@ function cancelEdit() {
 let cancelEditDiv = document.getElementById("cancel-edit")
 cancelEditDiv.addEventListener("click", cancelEdit)
 
-function displayContainerInput() {
+function displayNewForm() {
+  isEdit = false
   isNewForm = true
+  toggleForm = "Submit"
+  displayContainerInput()
+}
 
-  if (isNewForm) {
-    isEdit = false
-    console.log("isNewForm ", isNewForm)
+function displayContainerInput() {
+  if (toggleForm === "Submit") {
     document.getElementById("form-container-input").reset()
-
-    if (document.getElementById("form-container-input").classList.contains("displayflex")) {
-      console.log("sudah ADA DISPLAYFLEX")
-    } else {
-      console.log("BELUM ADA DISPLAYFLEX")
-
-      document.getElementById("form-container-input").classList.toggle("displayflex")
-    }
-
     //button display
     document.getElementById("submit-form").style.display = "block"
     document.getElementById("cancel-edit").style.display = "block"
@@ -932,6 +919,30 @@ function displayContainerInput() {
 
     // document.getElementById("submit-form").style.display = "none"
     // console.log(arrayArsenalPlayers[index])
+
+    if (document.getElementById("form-container-input").classList.contains("displayflex")) {
+      // if (isNewForm) {
+      //   document.getElementById("form-container-input").classList.toggle("displayflex")
+      // } else if (isEdit) {
+      //   console.log("is edit now!")
+      // }
+    } else {
+      console.log("BELUM ADA DISPLAYFLEX")
+
+      document.getElementById("form-container-input").classList.toggle("displayflex")
+    }
+  }
+
+  if (toggleForm === "Edit") {
+    if (document.getElementById("form-container-input").classList.contains("displayflex")) {
+      // if (isEdit) {
+      //   document.getElementById("form-container-input").classList.toggle("displayflex")
+      // } else if (isNewForm) {
+      //   console.log("is new form now!")
+      // }
+    } else {
+      document.getElementById("form-container-input").classList.toggle("displayflex")
+    }
   }
 
   // document.getElementById("form-container-input").setAttribute(".displayflex")
@@ -942,4 +953,26 @@ function displayContainerInput() {
   // }
 }
 
-document.getElementById("add-new-player").addEventListener("click", displayContainerInput)
+function searchPlayerButton() {
+  document.getElementById("div-search").classList.toggle("toggleSearch")
+}
+
+function searchPlayerInput() {
+  let inputValue = document.getElementById("search-player-input").value.toLowerCase()
+  console.log(`inputValue `, inputValue)
+
+  filteredPlayer = arrayArsenalPlayers.filter((player) => player.name.toLowerCase().includes(inputValue))
+
+  // let filteredPlayer = arrayArsenalPlayers.filter((player) => player.name === inputValue)
+  console.log(`filteredPlayer`, filteredPlayer)
+  displayData(filteredPlayer)
+  // let filteredPlayer = arrayArsenalPlayers.filter((player) => player.name.toLowerCase().includes(inputValue))
+}
+
+//ADD EVENT LISTENER
+
+document.getElementById("submit-form").addEventListener("click", submitButton)
+document.getElementById("edit-form").addEventListener("click", updatesButton)
+document.getElementById("add-new-player").addEventListener("click", displayNewForm)
+document.getElementById("search-player-button").addEventListener("click", searchPlayerButton)
+document.getElementById("search-player-input").addEventListener("input", searchPlayerInput)
