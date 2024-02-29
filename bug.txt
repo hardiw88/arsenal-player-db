@@ -1,9 +1,10 @@
 bug:
-- when search, and click edit the index refer to filtered player and not the choosen player
+- cannot edit new added player (check ID)
 - cannot choose file more than 1 time, it result in err_INV_URL
 
 
 done:
++ when search, and click edit the index refer to filtered player and not the choosen player
 + edit couldn't upload pics
 + edit not reveal the img name
 + upon update not clear choose image input

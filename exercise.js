@@ -4,7 +4,7 @@ let isNewForm = false
 let toggleForm = ""
 let arrayArsenalPlayers = [
   {
-    id: 1,
+    id: `UUQ1`,
     no: "1",
     name: "David Raya",
     age: 25,
@@ -155,34 +155,40 @@ let arrayArsenalPlayersUpdated
 
 let imgInput = document.getElementById("form-img")
 
-let newUrl = ""
+let newUrl = null
 
 //=========================
 // FUNCTION BUTTON[EDIT]
 //=========================
 function editButton(id) {
+  console.log(arrayArsenalPlayers)
   console.log("=======================")
   console.log("--- event BEHAVIOUR ---")
   console.log("=======================")
   toggleForm = ""
   isEdit = true
   toggleForm = "Edit"
-  displayContainerInput()
 
-  let index = arrayArsenalPlayers.findIndex((player) => player.id === id)
+  let playerID = typeof id === "number" ? id.toString() : id
+
+  let index = arrayArsenalPlayers.findIndex((player) => player.id.toString() === playerID)
   console.log(`isEdit = ` + isEdit)
   console.log(`toggleForm = ` + toggleForm)
   console.log("Player Name = ", arrayArsenalPlayers[index].name)
 
-  console.log("index = ", index)
+  console.log("playerID = ", playerID + "\ttype: ", typeof playerID)
 
-  console.log("Player ID = ", id)
+  console.log("id = ", id + "\ttype: ", typeof id)
+  console.log("index = ", index + "\ttype: ", typeof index)
 
   console.log("=======================")
-  //   console.log(arrayArsenalPlayers[index].id, " id")
   //
   //
+
+  //start code
   document.getElementById("form-facup").value = null
+
+  displayContainerInput()
 
   //      Button-behaviour
   document.getElementById("submit-form").style.display = "none"
@@ -190,7 +196,7 @@ function editButton(id) {
   document.getElementById("edit-form").style.display = "block"
 
   //      Input Retrieved
-  document.getElementById("form-id").value = arrayArsenalPlayers[index].id
+  document.getElementById("form-id").value = arrayArsenalPlayers[index].id.toString()
   document.getElementById("form-name").value = arrayArsenalPlayers[index].name
   document.getElementById("form-no").value = arrayArsenalPlayers[index].no
   document.getElementById("form-age").value = arrayArsenalPlayers[index].age
@@ -201,13 +207,15 @@ function editButton(id) {
   document.getElementById("form-premierleague").value = arrayArsenalPlayers[index].achievement.title.premierLeague
   document.getElementById("form-facup").value = arrayArsenalPlayers[index].achievement.title.faCup
 
-  // document.getElementById("form-img").files[0].name = arrayArsenalPlayers[index].img
-
   document.getElementById("display-picture").style.display = "block"
   document.getElementById("display-picture").src = arrayArsenalPlayers[index].img
+
+  // document.getElementById("form-img").files[0].name = arrayArsenalPlayers[index].img
+
+  //end code
 }
 
-function displayData(filteredPlayer, id) {
+function displayData(filteredPlayer) {
   //=========================
   // ITERATE OVER ARRAY
   //=========================
@@ -279,9 +287,9 @@ function displayData(filteredPlayer, id) {
       tBodyRow.insertCell().innerHTML = item.achievement.title.faCup
     }
 
-    tBodyRow.insertCell().innerHTML = `<button id="button-edit" onclick="editButton(${item.id})">Edit</button>`
+    tBodyRow.insertCell().innerHTML = `<button id="button-edit" onclick="editButton('${item.id}')">Edit</button>`
 
-    tBodyRow.insertCell().innerHTML = `<a href="#" onclick="deleteButton(${item.id})"><strong>X</strong></a>`
+    tBodyRow.insertCell().innerHTML = `<a href="#" onclick="deleteButton('${item.id}')"><strong>X</strong></a>`
   })
 }
 
@@ -309,7 +317,7 @@ function submitButton(event) {
   let hour = newDate.getHours()
   let min = newDate.getMinutes()
   let id = new Date().getDate().toString() + `${name.substring(0, 3)}` + `${indexPlayer}` + no
-  let uniqid = indexPlayer + `-` + getInitialName(name) + no + position + date + month + `` + year
+  let uniqid = indexPlayer + getInitialName(name) + no + position + date + month + `` + year
 
   function getInitialName(name) {
     let fullNameSplit = name.split(/\s+/)
@@ -747,25 +755,33 @@ document.getElementById("form-img").value = ""
 // console.log("newUrl", newUrl)
 imgInput.onchange = function (e) {
   console.log("e = ", e.target.files[0].name)
-  imgInput.src = ""
+  // imgInput.src = "" // to clear input value
 
   //   if (imgInput.files && imgInput.files[0]) {
   let newFileReader = new FileReader()
 
   newFileReader.onload = function (e) {
     let newImgUrl = e.target.result
-    newUrl += newImgUrl
+    newUrl = newImgUrl
     imgInput.src = newImgUrl
     //   console.log(imgInput, "imgInput")
     //   console.log(newImgUrl, "newImgUrl")
     document.getElementById("display-picture").src = newUrl
     document.getElementById("display-picture").style.display = "block"
+    // imgInput.value = "" // to clear input value
+    console.log(newImgUrl, " newImgUrl")
   }
 
   newFileReader.readAsDataURL(imgInput.files[0])
 
   //   }
 }
+
+// //use to clear input value
+// imgInput.addEventListener("click", (e) => {
+//   e.target.result = ""
+//   imgInput.value = ""
+// })
 //
 
 // function onKeyEnter(event) {
@@ -793,7 +809,7 @@ formInput.addEventListener("keypress", function (event) {
 // }
 
 function deleteButton(id) {
-  let playerIndex = arrayArsenalPlayers.findIndex((player) => player.id === id)
+  let playerIndex = arrayArsenalPlayers.findIndex((player) => player.id.toString() === id.toString())
   console.log("=======================")
   console.log("--- event BEHAVIOUR ---")
   console.log("=======================")

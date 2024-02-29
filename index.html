@@ -26,7 +26,7 @@
 
 
     <!-- player name -->
-    <div class="player-name">
+    <div class="player-name" id="player-name">
         <div class="form" >Player Name: <input type="text" class="form-name" id="form-name" required></div>
        <br/> 
        
@@ -41,14 +41,21 @@
     <div id="form-input" class="form-input">
         <!-- basic info -->
         <div class="basic-info">
-        <h3><u>Basic Info</u></h3> 
+        <h3><u>Basic Info <span class="requireds">(Required)</span> </u></h3> 
 
             <div class="form"> <input type="text" class="form-id" id="form-id" hidden></div>
 
-            <div class="form" >No: <input  class="form-no" id="form-no" required></div>
+            <div class="form" >No: <span class="requireds">*</span> <input  type="number" class="form-no" id="form-no" required></div>
         
-            <div class="form" >Age: <input  type="number" class="form-age" id="form-age" required></div>
-            <div class="form" >Position: <input type="text" class="form-position" id="form-position" required></div>
+            <div class="form" >Age: <span class="requireds">*</span> <input  type="number" class="form-age" id="form-age" required></div>
+            <div class="form" >Position: <span class="requireds">*</span> 
+                
+
+                <input type="text" class="form-position" id="form-position" required>
+            
+            
+            
+            </div>
         </div>
 
         

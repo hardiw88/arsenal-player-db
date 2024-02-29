@@ -299,11 +299,11 @@ h3 {
 }
 
 .search-player-input {
-  background-color: rgba(167, 13, 13, 0.194);
+  background-color: rgba(204, 7, 7, 0.902);
   text-transform: capitalize;
-  font-size: 23px;
+  font-size: 20px;
   border: 1px solid grey;
-  color: #000000;
+  color: rgb(255, 255, 255);
   border-radius: 5px;
   padding: 5px 0 5px 0;
   text-align: center;
@@ -313,6 +313,7 @@ h3 {
 }
 
 .search-player-input::placeholder {
+  color: gold;
   font-size: 18px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -320,4 +321,11 @@ h3 {
 .toggleSearch {
   display: flex;
   font-size: 18px;
+}
+
+.requireds {
+  color: red;
+  font-style: italic;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
 }
